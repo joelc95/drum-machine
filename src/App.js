@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
+  window.addEventListener('keyup', (e) => {
+    console.log(e.keyCode)
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{
+      border: 'solid 2px',
+      height: '100px',
+      width: '100px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}
+    >
+      A
     </div>
   );
 }
