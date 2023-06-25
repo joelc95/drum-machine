@@ -1,20 +1,33 @@
+import React, { useEffect } from "react";
+import './style.scss'
+
+
+const Drumpad = () => {
+  const keyArray = ['q', 'w', 'e', 'a', 's', 'd', 'z', 'x', 'c']
+  return(
+    <div className="drumpad-container">
+      {keyArray.map(i => {
+        return <div className="drumpad-button">{i}</div>
+      })}
+    </div>
+  )
+}
 
 function App() {
-  window.addEventListener('keyup', (e) => {
-    console.log(e.keyCode)
-  })
+
+  useEffect(() => {
+    return () => {
+      document.addEventListener('keydown', e => {
+        console.log(e.key)
+      })
+    }
+  }, [])
+  
+  
 
   return (
-    <div style={{
-      border: 'solid 2px',
-      height: '100px',
-      width: '100px',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}
-    >
-      A
+    <div className="container">
+      <Drumpad />
     </div>
   );
 }

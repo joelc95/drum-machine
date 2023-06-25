@@ -1,0 +1,17 @@
+$myColor: red;
+
+div {
+  border: $myColor solid 1px
+}
+
+.drumpad-container {
+  display: flex;
+  width: 50vw;
+  height: 50vh;
+  flex-wrap: wrap;
+}
+
+.drumpad-button {
+  height: 100px;
+  width: 100px;
+}
