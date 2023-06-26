@@ -1,17 +1,54 @@
 $myColor: red;
 
-div {
-  border: $myColor solid 1px
+.wrapper {
+  display: flex;
+  height: 100vh;
+  border: red solid 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.parent-container {
+  display: flex;
+  border: green solid 3px;
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .drumpad-container {
-  display: flex;
-  width: 50vw;
-  height: 50vh;
-  flex-wrap: wrap;
+  display: grid;
+  width: 350px;
+  height: 350px;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
 }
 
 .drumpad-button {
   height: 100px;
   width: 100px;
+  border: black solid 1px;
+}
+
+.controls-container {
+  border: blue solid 1px;
+  display: flex;
+  width: 350px;
+  height: 50vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display-container {
+  border: red solid 1px;
+  width: 300px;
+  height: 50px;
+}
+
+.volume-container {
+  border: black solid 1px;
+  height:fit-content;
 }
