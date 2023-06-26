@@ -64,15 +64,19 @@ const Drumpad = () => {
   useEffect(() => {
     return () => {
       document.addEventListener('keydown', e => {
-        console.log(e.key)
-        console.log(e.keyCode)
-        playSound(e);
+      console.log(e)
+      // console.log(e.keyCode)
+      playSound(e);
       })
     }
   }, [])
 
-  const handleClick = () => {
-
+  const handleClick = (e) => {
+    console.log(typeof e.target.innerHTML)
+    let sound = document.getElementById(e.target.innerHTML+'-sound');
+    sound.pause();
+    sound.currentTime = 0;
+    sound.play();
   }
 
   const playSound = (e) => {
@@ -88,7 +92,7 @@ const Drumpad = () => {
       {soundBank.map(i => {
         return (
           <>
-            <div onClick={handleClick} className="drumpad-button" id={i.id+'-button'}>{i.keyTrigger}</div>
+            <div onClick={(e)=>handleClick(e)} className="drumpad-button" id={i.id+'-button'}>{i.keyTrigger}</div>
             <audio className="drumpad-sound" id={i.keyTrigger+'-sound'} src={i.url}></audio>
           </>
         )
