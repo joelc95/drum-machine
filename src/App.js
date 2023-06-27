@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './style.scss'
 
 const validKeys = ['q','w','e','a','s','d','z','x','c'];
@@ -61,7 +61,7 @@ const soundBank = [
 ]
 
 
-const Drumpad = () => {
+const Drumpad = ({drum, setDrum}) => {
 
   useEffect(() => {
     return () => {
@@ -69,12 +69,13 @@ const Drumpad = () => {
       console.log(e)
       // console.log(e.keyCode)
       playSound(e);
-      })
-    }
+      setDrum(soundBank.find(x => x.keyCode === e.keyCode).id);
+    })
+    
+  }
   }, [])
 
   const handleClick = (e) => {
-    console.log(typeof e.target.innerHTML)
     let sound = document.getElementById(e.target.innerHTML+'-sound');
     sound.pause();
     sound.currentTime = 0;
@@ -83,7 +84,6 @@ const Drumpad = () => {
 
   const playSound = (e) => {
     if(validKeys.includes(e.key)) {
-      console.log(e.key+'-sound')
       let sound = document.getElementById(e.key+'-sound');
       sound.pause();
       sound.currentTime = 0;
@@ -105,11 +105,11 @@ const Drumpad = () => {
   )
 }
 
-const Display = () => {
+const Display = ({drum}) => {
   return (
     <div className="controls-container">
       <div className="display-container">
-        Placeholder text
+        {drum}
       </div>
       <div className="volume-container">
         <input type='range' className="volume-slider" />
@@ -119,12 +119,15 @@ const Display = () => {
 }
 
 function App() {
+  const [drum, setDrum] = useState('--')
+
+
   
   return (
     <div className="wrapper">
       <div className="parent-container">
-        <Drumpad />
-        <Display />
+        <Drumpad drum={drum} setDrum={setDrum}/>
+        <Display drum={drum}/>
       </div>
     </div>
   );
