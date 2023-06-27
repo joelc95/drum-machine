@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import './style.scss'
 
+const validKeys = ['q','w','e','a','s','d','z','x','c'];
+
 const soundBank = [
   {
     keyCode: 81,
@@ -80,11 +82,13 @@ const Drumpad = () => {
   }
 
   const playSound = (e) => {
-    console.log(e.key+'-sound')
-    let sound = document.getElementById(e.key+'-sound');
-    sound.pause();
-    sound.currentTime = 0;
-    sound.play();
+    if(validKeys.includes(e.key)) {
+      console.log(e.key+'-sound')
+      let sound = document.getElementById(e.key+'-sound');
+      sound.pause();
+      sound.currentTime = 0;
+      sound.play();
+    }
   }
 
   return(
