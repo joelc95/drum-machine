@@ -105,14 +105,19 @@ const Drumpad = ({drum, setDrum}) => {
   )
 }
 
-const Display = ({drum}) => {
+const Display = ({drum, volume, setVolume}) => {
+
+  const handleVolume = (event) => {
+    setVolume(event.target.value);
+    console.log(volume)
+  }
   return (
     <div className="controls-container">
       <div className="display-container">
         {drum}
       </div>
       <div className="volume-container">
-        <input type='range' className="volume-slider" />
+        <input onMouseUp={e=>handleVolume(e)} type='range' className="volume-slider" min="0" max="10" value="5"/>
       </div>
     </div>
   )
@@ -120,14 +125,13 @@ const Display = ({drum}) => {
 
 function App() {
   const [drum, setDrum] = useState('--')
-
-
+  const [volume, setVolume] = useState('5')
   
   return (
     <div className="wrapper">
       <div className="parent-container">
-        <Drumpad drum={drum} setDrum={setDrum}/>
-        <Display drum={drum}/>
+        <Drumpad drum={drum} setDrum={setDrum} volume={volume} setVolume={setVolume}/>
+        <Display drum={drum} volume={volume} setVolume={setVolume}/>
       </div>
     </div>
   );
