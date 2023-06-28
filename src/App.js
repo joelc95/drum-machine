@@ -61,12 +61,12 @@ const soundBank = [
 ]
 
 
-const Drumpad = ({drum, setDrum}) => {
+const Drumpad = ({drum, setDrum, volume, setVolume}) => {
 
   useEffect(() => {
     return () => {
       document.addEventListener('keydown', e => {
-      console.log(e)
+      // console.log(e)
       // console.log(e.keyCode)
       playSound(e);
       setDrum(soundBank.find(x => x.keyCode === e.keyCode).id);
@@ -77,17 +77,20 @@ const Drumpad = ({drum, setDrum}) => {
 
   const handleClick = (e) => {
     let sound = document.getElementById(e.target.innerHTML+'-sound');
+    console.log(e.target)
+    setDrum(soundBank.find(x => x.id.concat('-button') === e.target.id).id);
+
     sound.pause();
     sound.currentTime = 0;
     sound.play();
   }
 
-  const playSound = (e) => {
+  const playSound = async (e) => {
     if(validKeys.includes(e.key)) {
       let sound = document.getElementById(e.key+'-sound');
-      sound.pause();
+      await sound.pause();
       sound.currentTime = 0;
-      sound.play();
+      await sound.play();
     }
   }
 
@@ -97,7 +100,7 @@ const Drumpad = ({drum, setDrum}) => {
         return (
           <>
             <div onClick={(e)=>handleClick(e)} className="drumpad-button" id={i.id+'-button'}>{i.keyTrigger}</div>
-            <audio className="drumpad-sound" id={i.keyTrigger+'-sound'} src={i.url}></audio>
+            <audio className="drumpad-sound" id={i.keyTrigger+'-sound'} src={i.url} volume={volume}></audio>
           </>
         )
       })}
@@ -111,13 +114,14 @@ const Display = ({drum, volume, setVolume}) => {
     setVolume(event.target.value);
     console.log(volume)
   }
+
   return (
     <div className="controls-container">
       <div className="display-container">
         {drum}
       </div>
       <div className="volume-container">
-        <input onMouseUp={e=>handleVolume(e)} type='range' className="volume-slider" min="0" max="10" value="5"/>
+        <input onMouseUp={e=>handleVolume(e)} type='range' className="volume-slider" min="0" max="1" step="0.1" />
       </div>
     </div>
   )
