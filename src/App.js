@@ -114,8 +114,12 @@ const Display = ({drum, volume, setVolume}) => {
 
   const handleVolume = (event) => {
     setVolume(event.target.value);
-    console.log(volume)
+    const audio = document.getElementsByTagName('audio');
+    for(let i = 0; i < audio.length; i++) {
+      audio[i].volume = event.target.value
+    }
   }
+
 
   return (
     <div className="controls-container">
@@ -131,7 +135,7 @@ const Display = ({drum, volume, setVolume}) => {
 
 function App() {
   const [drum, setDrum] = useState('--')
-  const [volume, setVolume] = useState('5')
+  const [volume, setVolume] = useState('1')
   
   return (
     <div className="wrapper">
