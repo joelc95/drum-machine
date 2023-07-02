@@ -69,7 +69,9 @@ const Drumpad = ({drum, setDrum, volume, setVolume}) => {
       // console.log(e)
       // console.log(e.keyCode)
       playSound(e);
-      setDrum(soundBank.find(x => x.keyCode === e.keyCode).id);
+      if(validKeys.includes(e.key)) {
+        setDrum(soundBank.find(x => x.keyCode === e.keyCode).id);
+      }
     })
     
   }
