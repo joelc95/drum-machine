@@ -82,7 +82,7 @@ const Drumpad = ({drum, setDrum, volume, setVolume}) => {
     console.log(e.target)
     setDrum(soundBank.find(x => x.id.concat('-button') === e.target.id).id);
 
-    sound.pause();
+    // sound.pause();
     sound.currentTime = 0;
     sound.play();
   }
@@ -124,7 +124,7 @@ const Display = ({drum, volume, setVolume}) => {
   return (
     <div className="controls-container">
       <div className="display-container">
-        {drum}
+        <p>{drum}</p>
       </div>
       <div className="volume-container">
         <input onMouseUp={e=>handleVolume(e)} type='range' className="volume-slider" min="0" max="1" step="0.1" />
