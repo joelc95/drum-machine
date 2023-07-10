@@ -1,20 +1,27 @@
 $myColor: red;
 
+* {
+  font-family: monospace;
+  font-weight: bold;
+}
+
 .wrapper {
   display: flex;
   height: 100vh;
-  border: red solid 4px;
   justify-content: center;
   align-items: center;
+
+  background-color: rgb(212, 212, 212);
 }
 
 .parent-container {
   display: flex;
-  border: green solid 3px;
   width: fit-content;
   height: fit-content;
   align-items: center;
   justify-content: center;
+
+  background-color: rgb(242, 242, 242);
 
 }
 
@@ -44,11 +51,20 @@ $myColor: red;
 }
 
 .display-container {
-  border: red solid 1px;
+  border-top: black solid 7px;
+  border-bottom: black solid 7px;
+  border-left: black solid 16px;
+  border-right: black solid 16px;
+  background-color: rgb(74, 136, 222);
+  color: white;
+  
   width: 300px;
   height: 50px;
   text-align: center;
-  display: inline-block;
+
+  p {
+    margin: 0;
+  }
   
 }
 

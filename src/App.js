@@ -121,7 +121,8 @@ const Display = ({drum, volume, setVolume}) => {
   return (
     <div className="controls-container" id="display">
       <div className="display-container">
-        <p>{drum}</p>
+        <p>Drum: {drum}</p>
+        <p>Volume: {volume*10}</p>
       </div>
       <div className="volume-container">
         <input onMouseUp={e=>handleVolume(e)} type='range' className="volume-slider" min="0" max="1" step="0.1" />
