@@ -37,17 +37,37 @@ $myColor: red;
 .drumpad-button {
   height: 100px;
   width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: black solid 1px;
+  box-shadow: 3px 3px grey;
+
+  background-color: rgb(57, 57, 57);
+  color: whitesmoke;
 }
 
 .controls-container {
-  border: blue solid 1px;
   display: flex;
   width: 350px;
   height: 50vh;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  
+}
+
+.logo-container {
+  display: flex;
+  height: 30%;
+  
+
+  align-items: flex-end;
+  padding-left: 75%;
+  padding-bottom: 10px;
+  
+  #akai-logo {
+    height: 15px;
+  }
 }
 
 .display-container {
@@ -69,6 +89,5 @@ $myColor: red;
 }
 
 .volume-container {
-  border: black solid 1px;
-  height:fit-content;
+  height: 30%;
 }

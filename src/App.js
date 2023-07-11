@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './style.scss'
+import akai from './assets/akai.png'
 
 const validCodes = [ 81, 87, 69, 65, 83, 68, 90, 88, 67 ]
 
@@ -120,6 +121,9 @@ const Display = ({drum, volume, setVolume}) => {
 
   return (
     <div className="controls-container" id="display">
+      <div className="logo-container">
+        <img id='akai-logo' src={akai} alt="akai logo" />
+      </div>
       <div className="display-container">
         <p>Drum: {drum}</p>
         <p>Volume: {volume*10}</p>
