@@ -10,7 +10,23 @@ Use front-end libraries to build a drum machine application that can take key pr
  - SASS
 
 ## Process:
-1. Add an event listener to the document to listen for key presses
+1. Create sound bank array to hold all of our drum sound info
+```js
+  // These are the keycodes for our accepted keys (Q, W, E, A, S, D, Z, X, C)
+  const validCodes = [ 81, 87, 69, 65, 83, 68, 90, 88, 67 ]
+
+  // Here we create an array to hold useful info for each key and its sound file
+  const soundBank = [
+    {
+      keyCode: 81,
+      keyTrigger: 'Q',
+      id: 'Heater-1',
+      url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
+    },
+  ]
+```
+
+2. Add an event listener to the document to listen for key presses
 ```js
   document.addEventListener('keydown', e => {
     // This function will fetch the sound file
@@ -25,7 +41,7 @@ Use front-end libraries to build a drum machine application that can take key pr
   })
 ```
 
-2. Create the drumpad layout
+3. Create the drumpad layout
 ```js
   return(
     <div className="drumpad-container">
@@ -40,4 +56,17 @@ Use front-end libraries to build a drum machine application that can take key pr
       })}
     </div>
   )
+```
+
+4. Create click handler function to be added to each drumpad
+```js
+  const handleClick = (e) => {
+    let sound = document.getElementById(e.target.innerHTML[0]);
+    console.log(e.target)
+    setDrum(soundBank.find(x => x.id.concat('-button') === e.target.id).id);
+
+    // sound.pause();
+    sound.currentTime = 0;
+    sound.play();
+  }
 ```
