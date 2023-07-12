@@ -70,3 +70,16 @@ Use front-end libraries to build a drum machine application that can take key pr
     sound.play();
   }
 ```
+
+5. Add display functionality -- show which drum sound last played and make adjustable volume.
+We can create state hooks for _drum_ and _volume_.
+```js
+  const [drum, setDrum] = useState('--')
+  const [volume, setVolume] = useState('1')
+```
+
+Then on click or on keydown for each drumpad we can use _setDrum_, and on mouse up for our volume slider we can _setVolume_ of the slider's current value.
+
+6. Now we can add styling -- I wanted to use a similar colour scheme to the AKAI MPC3000 sampler 😊
+
+![app screenshot](./public/Screenshot%202023-07-12%20at%2021.22.08.png)
