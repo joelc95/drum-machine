@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/drum-machine/static/css/main.1cf2b59c.css",
+    "main.js": "/drum-machine/static/js/main.ba888728.js",
+    "static/js/787.c419f7a1.chunk.js": "/drum-machine/static/js/787.c419f7a1.chunk.js",
+    "static/media/akai.png": "/drum-machine/static/media/akai.41ccd8bea5c31497aea7.png",
+    "index.html": "/drum-machine/index.html",
+    "main.1cf2b59c.css.map": "/drum-machine/static/css/main.1cf2b59c.css.map",
+    "main.ba888728.js.map": "/drum-machine/static/js/main.ba888728.js.map",
+    "787.c419f7a1.chunk.js.map": "/drum-machine/static/js/787.c419f7a1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1cf2b59c.css",
+    "static/js/main.ba888728.js"
+  ]
+}
